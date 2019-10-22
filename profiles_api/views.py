@@ -27,28 +27,57 @@ class HelloApiView(APIView):
 
         return Response({'message': 'Hello!', 'an_apiview': an_apiview})
 
-def post(self, request):
+    def post(self, request):
 
-        """Create a hello message with our name"""
+            """Create a hello message with our name"""
 
-        serializer = self.serializer_class(data=request.data)
+            serializer = self.serializer_class(data=request.data)
 
 
 
-        if serializer.is_valid():
+            if serializer.is_valid():
 
-            name = serializer.validated_data.get('name')
+                name = serializer.validated_data.get('name')
 
-            message = f'Hello {name}!'
+                message = f'Hello {name}!'
 
-            return Response({'message': message})
+                return Response({'message': message})
 
-        else:
+            else:
 
-            return Response(
+                return Response(
 
-                serializer.errors,
+                    serializer.errors,
 
-                status=status.HTTP_400_BAD_REQUEST
+                    status=status.HTTP_400_BAD_REQUEST
 
-            )
+                )
+
+
+    def put(self, request, pk=None):
+
+        """Handle updating an object"""
+
+
+
+        return Response({'method': 'PUT'})
+
+
+
+    def patch(self, request, pk=None):
+
+        """Handle partial update of object"""
+
+
+
+        return Response({'method': 'PATCH'})
+
+
+
+    def delete(self, request, pk=None):
+
+        """Delete an object"""
+
+
+
+        return Response({'method': 'DELETE'})
