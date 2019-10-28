@@ -6,7 +6,7 @@ from rest_framework import viewsets
 from rest_framework.authentication import TokenAuthentication
 from rest_framework import filters
 from rest_framework.authtoken.views import ObtainAuthToken
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAuthenticated
 
 from rest_framework.settings import api_settings
 
@@ -228,7 +228,7 @@ class UserProfileFeedViewSet(viewsets.ModelViewSet):
 
         permissions.UpdateOwnStatus,
 
-        IsAuthenticatedOrReadOnly
+        IsAuthenticated
         )
 
 
