@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '7&(=k648s&*0n25%rcs=71)=jt8pte-#9@x!i35u372hv&2&!f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = bool(int(os.environ.get('DEBUG', 1)))
 
 ALLOWED_HOSTS = ['192.168.0.7', 'localhost','127.0.0.1']
 
@@ -122,3 +122,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 AUTH_USER_MODEL= 'profiles_api.UserProfile'
+
+STATIC_ROOT = 'static/'
